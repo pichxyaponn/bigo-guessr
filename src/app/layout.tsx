@@ -9,7 +9,7 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export const metadata: Metadata = {
-  title: "Big O Notation Guesser",
+  title: "Big O Notation Guessr",
   description: "ทดสอบความรู้เรื่องความซับซ้อนเชิงเวลาของอัลกอริทึม",
 };
 
