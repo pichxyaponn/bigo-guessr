@@ -10,7 +10,12 @@ RUN bun add -d @types/react @types/node
 
 # Copy only package files for better layer caching
 COPY package.json bun.lock ./
+
+# Install dependencies with platform-specific binaries for Tailwind CSS 4.0
 RUN bun install --frozen-lockfile --production
+
+# Install platform-specific Tailwind CSS binaries
+RUN bun add @tailwindcss/oxide-linux-arm64-gnu @tailwindcss/oxide-linux-x64-gnu
 
 # Stage 2: Build application
 FROM base AS builder
