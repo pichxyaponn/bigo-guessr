@@ -1,5 +1,5 @@
 services:
-  nextjs:
+  bigo-guessr:
     build:
       context: .
       dockerfile: Dockerfile
