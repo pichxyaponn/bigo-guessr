@@ -1,0 +1,102 @@
+{
+  "algorithms": [
+    {
+      "id": 1,
+      "name": "Linear Search",
+      "code": "public static int linearSearch(int[] arr, int target) {\n  for (int i = 0; i < arr.length; i++) {\n    if (arr[i] == target) {\n      return i;\n    }\n  }\n  return -1;\n}",
+      "complexity": "O(n)",
+      "explanation": "Linear search วิ่งไล่ดูทีละตัวในอาเรย์ ทำให้เวลาที่ใช้มันเพิ่มขึ้นตามจำนวนข้อมูลที่ใส่เข้ามาเลยนะ ง่ายๆ คือยิ่งมีของเยอะ ก็ยิ่งใช้เวลานานขึ้นตรงๆ เลยอะ",
+      "language": "java"
+    },
+    {
+      "id": 2,
+      "name": "Binary Search",
+      "code": "public static int binarySearch(int[] arr, int target) {\n  int left = 0;\n  int right = arr.length - 1;\n\n  while (left <= right) {\n    int mid = (left + right) / 2;\n\n    if (arr[mid] == target) {\n      return mid;\n    } else if (arr[mid] < target) {\n      left = mid + 1;\n    } else {\n      right = mid - 1;\n    }\n  }\n\n  return -1;\n}",
+      "complexity": "O(log n)",
+      "explanation": "Binary search มันจะแบ่งครึ่งๆ ไปเรื่อยๆ แทนที่จะไล่ทีละตัว ทำให้หาของได้ไวขึ้นเยอะ ยิ่งข้อมูลเยอะขึ้น ก็ยิ่งเห็นว่ามันเร็วกว่า Linear search เยอะมากๆ เลย",
+      "language": "java"
+    },
+    {
+      "id": 3,
+      "name": "Bubble Sort",
+      "code": "public static int[] bubbleSort(int[] arr) {\n  int n = arr.length;\n\n  for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n - i - 1; j++) {\n      if (arr[j] > arr[j + 1]) {\n        // Swap elements\n        int temp = arr[j];\n        arr[j] = arr[j + 1];\n        arr[j + 1] = temp;\n      }\n    }\n  }\n\n  return arr;\n}",
+      "complexity": "O(n²)",
+      "explanation": "Bubble sort นี่มันช้าสุดๆ เลยนะ มันใช้ลูปซ้อนลูป เทียบแล้วสลับทีละคู่ๆ ไปเรื่อยๆ ยิ่งข้อมูลเยอะ ยิ่งช้าเป็นทวีคูณ ถ้าข้อมูล 10 ตัว ก็ต้องเทียบประมาณ 100 ครั้ง โคตรเปลืองเวลา",
+      "language": "java"
+    },
+    {
+      "id": 4,
+      "name": "Quick Sort",
+      "code": "public static int[] quickSort(int[] arr, int low, int high) {\n  if (low < high) {\n    int pivotIndex = partition(arr, low, high);\n    quickSort(arr, low, pivotIndex - 1);\n    quickSort(arr, pivotIndex + 1, high);\n  }\n  return arr;\n}\n\nprivate static int partition(int[] arr, int low, int high) {\n  int pivot = arr[high];\n  int i = low - 1;\n\n  for (int j = low; j < high; j++) {\n    if (arr[j] <= pivot) {\n      i++;\n      int temp = arr[i];\n      arr[i] = arr[j];\n      arr[j] = temp;\n    }\n  }\n\n  int temp = arr[i + 1];\n  arr[i + 1] = arr[high];\n  arr[high] = temp;\n\n  return i + 1;\n}",
+      "complexity": "O(n log n)",
+      "explanation": "Quick Sort คือการเรียงข้อมูลที่ใช้หลักการ 'แบ่งแล้วเอาชนะ' โดยเลือกตัวแบ่ง (pivot) จากนั้นแบ่งข้อมูลเป็น 2 กลุ่ม - กลุ่มที่มีค่าน้อยกว่า pivot (ตอนหน้า) และกลุ่มที่มีค่ามากกว่า pivot (ตอนหลัง)แล้วทำซ้ำกับแต่ละกลุ่มย่อยไปเรื่อยๆ จนกว่าข้อมูลทั้งหมดจะเรียงลำดับถูกต้อง โดยเฉลี่ยแล้วเร็วกว่า Bubble sort เยอะเลย แต่ถ้าโชคร้ายก็อาจจะช้ากว่าได้",
+      "language": "java"
+    },
+    {
+      "id": 5,
+      "name": "Constant Time Operation",
+      "code": "public static int getFirstElement(int[] arr) {\n  return arr[0];\n}",
+      "complexity": "O(1)",
+      "explanation": "อันนี้เร็วสุดๆ เลยนะ ไม่ว่าข้อมูลจะเยอะแค่ไหน มันก็ทำงานเสร็จในเวลาเท่าเดิมตลอด เหมือนเราหยิบของชิ้นแรกในกล่อง ไม่ต้องสนใจว่าในกล่องมีของกี่ชิ้น",
+      "language": "java"
+    },
+    {
+      "id": 6,
+      "name": "Nested Loops with Same Size Arrays",
+      "code": "public static int nestedLoops(int[] arr1, int[] arr2) {\n  int result = 0;\n\n  for (int i = 0; i < arr1.length; i++) {\n    for (int j = 0; j < arr2.length; j++) {\n      result += arr1[i] * arr2[j];\n    }\n  }\n\n  return result;\n}",
+      "complexity": "O(n²)",
+      "explanation": "อันนี้ก็ช้าไปอีกแบบนะ มันมีลูปซ้อนลูป ถ้าอาเรย์ทั้งสองมีขนาดเท่ากันคือ n ก็ต้องคำนวณ n คูณ n ครั้งเลย ยิ่งอาเรย์ใหญ่ ยิ่งช้าเป็นทวีคูณ เหมือน Bubble sort นั่นแหละ",
+      "language": "java"
+    },
+    {
+      "id": 7,
+      "name": "Triple Nested Loops",
+      "code": "public static int tripleNestedLoops(int n) {\n  int count = 0;\n\n  for (int i = 0; i < n; i++) {\n    for (int j = 0; j < n; j++) {\n      for (int k = 0; k < n; k++) {\n        count++;\n      }\n    }\n  }\n\n  return count;\n}",
+      "complexity": "O(n³)",
+      "explanation": "อันนี้ช้าหนักมาก! มีลูปซ้อนกันถึงสามชั้น ถ้า n = 10 ก็ต้องทำงาน 1,000 ครั้ง ถ้า n = 100 ก็ต้องทำงานถึง 1,000,000 ครั้ง! ช้าแบบโคตรๆ เลย ระวังคอมพังนะถ้า n ใหญ่ๆ",
+      "language": "java"
+    },
+    {
+      "id": 8,
+      "name": "Factorial Calculation",
+      "code": "public static int factorial(int n) {\n  if (n <= 1) {\n    return 1;\n  }\n\n  return n * factorial(n - 1);\n}",
+      "complexity": "O(n)",
+      "explanation": "การคำนวณแฟคทอเรียลแบบนี้ (แบบ recursive) มันเรียกตัวเองซ้ำไปเรื่อยๆ n ครั้ง เลยใช้เวลาเพิ่มขึ้นตรงๆ ตามค่า n ที่ใส่เข้าไป ไม่ได้ช้ามากนะ แต่ก็ไม่ได้เร็วมากด้วย",
+      "language": "java"
+    },
+    {
+      "id": 9,
+      "name": "Fibonacci (Naive Recursive)",
+      "code": "public static int fibonacci(int n) {\n  if (n <= 1) {\n    return n;\n  }\n\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}",
+      "complexity": "O(2ⁿ)",
+      "explanation": "อันนี้โคตรช้าเลย! มันคำนวณซ้ำๆ เยอะมาก เพราะมันแตกเป็นสองกิ่งทุกครั้งที่เรียกตัวเอง ถ้าใส่ n แค่ 40 ก็รอจนแก่ละ เหมือนต้นไม้ที่แตกกิ่งก้านสาขา",
+      "language": "java"
+    },
+    {
+      "id": 10,
+      "name": "Merge Sort",
+      "code": "function mergeSort(arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n\n  const mid = Math.floor(arr.length / 2);\n  const left = mergeSort(arr.slice(0, mid));\n  const right = mergeSort(arr.slice(mid));\n\n  return merge(left, right);\n}\n\nfunction merge(left, right) {\n  const result = [];\n  let i = 0, j = 0;\n\n  while (i < left.length && j < right.length) {\n    if (left[i] < right[j]) {\n      result.push(left[i]);\n      i++;\n    } else {\n      result.push(right[j]);\n      j++;\n    }\n  }\n\n  return [...result, ...left.slice(i), ...right.slice(j)];\n}",
+      "complexity": "O(n log n)",
+      "explanation": "Merge sort ก็เป็นอีกตัวที่เจ๋งมาก มันแบ่งอาเรย์ออกเป็นครึ่งๆ แล้วค่อยๆ รวมกลับ ทำให้เร็วพอๆ กับ Quick sort เลย แถมไม่มีกรณีที่แย่สุดแบบ Quick sort ด้วย เรียกว่าเป็นตัวเลือกที่ดีมากๆ",
+      "language": "javascript"
+    },
+    {
+      "id": 11,
+      "name": "Quadruple Nested Loops",
+      "code": "function quadrupleNestedLoops(n) {\n  let count = 0;\n\n  for (let i = 0; i < n; i++) {\n    for (let j = 0; j < n; j++) {\n      for (let k = 0; k < n; k++) {\n        for (let l = 0; l < n; l++) {\n          count++;\n        }\n      }\n    }\n  }\n\n  return count;\n}",
+      "complexity": "O(n⁴)",
+      "explanation": "อันนี้ช้าสุดๆ ในบรรดาพวกลูปซ้อนทั้งหมดเลย! มีลูปซ้อนกันถึง 4 ชั้น ถ้า n = 10 ก็ต้องทำงานถึง 10,000 ครั้ง ถ้า n = 100 ก็ต้องทำงาน 100,000,000 ครั้ง! ใช้อันนี้ระวังคอมไหม้ได้เลย",
+      "language": "javascript"
+    }
+  ],
+  "complexityOptions": [
+    "O(1)",
+    "O(log n)",
+    "O(n)",
+    "O(n log n)",
+    "O(n²)",
+    "O(n³)",
+    "O(n⁴)",
+    "O(2ⁿ)"
+  ]
+}
