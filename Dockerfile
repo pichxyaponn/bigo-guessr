@@ -12,10 +12,6 @@ RUN bun add -d @types/react @types/node
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile --production
 
-# Copy prisma schema
-COPY prisma ./prisma/
-RUN bunx prisma generate
-
 # Stage 2: Build application
 FROM base AS builder
 WORKDIR /app
@@ -50,7 +46,6 @@ RUN adduser --system --no-create-home --uid 1001 next15ws
 # Copy necessary files from builder
 COPY --from=builder --chown=next15ws:next15ws /app/.next/standalone ./
 COPY --from=builder --chown=next15ws:next15ws /app/.next/static ./.next/static
-COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/migrate-and-start.sh .
 COPY --from=builder /app/public ./public
 

@@ -6,8 +6,6 @@ services:
     image: bigo-guessr
 
     restart: unless-stopped
-    env_file:
-      - .env
     environment:
       - NODE_ENV=production
       - SKIP_DATABASE_CHECK=true
