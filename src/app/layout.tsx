@@ -21,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSansThai.className} antialiased`}
+        className={`${notoSansThai.className} antialiased min-h-screen flex flex-col`}
       >
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
       </body>
     </html>
   );
