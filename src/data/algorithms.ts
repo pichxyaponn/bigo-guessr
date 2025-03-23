@@ -8,10 +8,8 @@ export interface Algorithm {
   language?: string;
 }
 
-// Import algorithms data from JSON file
 import algorithmsData from './algorithms.json';
 
 export const algorithms: Algorithm[] = algorithmsData.algorithms as Algorithm[];
 
-// Export complexity options from the JSON file
 export const complexityOptions = algorithmsData.complexityOptions as string[];

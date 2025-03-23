@@ -3,10 +3,8 @@
 import { useEffect, useRef } from 'react';
 import Prism from 'prismjs';
 
-// Import Prism CSS themes - we'll use the okaidia theme by default
 import 'prismjs/themes/prism-okaidia.css';
 
-// Import language support
 import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-typescript';
@@ -20,10 +18,8 @@ export default function CodeBlock({ code, language = 'javascript' }: CodeBlockPr
   const codeRef = useRef<HTMLPreElement>(null);
 
   useEffect(() => {
-    if (codeRef.current) {
-      // Highlight the code using Prism
+    if (codeRef.current)
       Prism.highlightElement(codeRef.current);
-    }
   }, [code, language]);
 
   return (

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Big O Notation Guesser",
-  description: "Test your algorithm time complexity knowledge",
+  description: "ทดสอบความรู้เรื่องความซับซ้อนเชิงเวลาของอัลกอริทึม",
 };
 
 export default function RootLayout({

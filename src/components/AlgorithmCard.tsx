@@ -33,7 +33,7 @@ export default function AlgorithmCard({
         </div>
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-            โค้ดชุดนี้ใช้ Big O Notation อันไหน?
+            โค้ดชุดนี้ใช้ Big O Notation ตัวไหน?
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {complexityOptions.map((complexity) => (

@@ -13,7 +13,6 @@ export default function Game() {
   const [score, setScore] = useState<number>(0);
   const [gameAlgorithms, setGameAlgorithms] = useState<Algorithm[]>([]);
 
-  // Initialize the game with shuffled algorithms
   useEffect(() => {
     const shuffled = [...algorithms].sort(() => Math.random() - 0.5);
     setGameAlgorithms(shuffled);
@@ -25,9 +24,8 @@ export default function Game() {
     setUserGuess(complexity);
     setShowResult(true);
 
-    if (complexity === currentAlgorithm?.complexity) {
+    if (complexity === currentAlgorithm?.complexity)
       setScore(score + 1);
-    }
   };
 
   const handleNext = () => {
@@ -37,7 +35,7 @@ export default function Game() {
       setShowResult(false);
     } else {
       // Game over
-      alert(`Game Over! Your score: ${score}/${gameAlgorithms.length}`);
+      alert(`Game Over! คะแนน: ${score}/${gameAlgorithms.length}`);
       // Reset game
       const shuffled = [...algorithms].sort(() => Math.random() - 0.5);
       setGameAlgorithms(shuffled);
@@ -48,9 +46,8 @@ export default function Game() {
     }
   };
 
-  if (!currentAlgorithm || gameAlgorithms.length === 0) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
-  }
+  if (!currentAlgorithm || gameAlgorithms.length === 0)
+    return <div className="flex justify-center items-center h-screen">กำลังโหลด...</div>;
 
   return (
     <div className="flex flex-col items-center gap-6 w-full max-w-4xl mx-auto">
