@@ -6,6 +6,7 @@ export interface Algorithm {
   complexity: string;
   explanation: string;
   language?: string;
+  hint?: string;
 }
 
 import algorithmsData from './algorithms.json';
