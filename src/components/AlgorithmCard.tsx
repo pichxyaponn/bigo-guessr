@@ -37,17 +37,16 @@ export default function AlgorithmCard({
           <CodeBlock code={algorithm.code} language={algorithm.language} />
         </div>
         <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 py-2 px-4 rounded-lg inline-block">
+          <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-700/50 py-2">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 py-2 px-4 rounded-lg inline-block">
               โค้ดชุดนี้ใช้ Big O Notation ตัวไหน?
             </h3>
             {algorithm.hint && (
               <button
                 onClick={toggleHint}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors py-2 px-4 rounded-lg flex items-center gap-1 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800"
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors p-3 mx-2 rounded-lg flex items-center gap-1 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800"
               >
-                <span className="text-yellow-500">💡</span>
-                {showHint ? 'ซ่อนคำใบ้' : 'ดูคำใบ้'}
+                <span className="text-yellow-500 text-xl">💡</span>
               </button>
             )}
           </div>
